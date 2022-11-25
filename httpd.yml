@@ -1,0 +1,16 @@
+---
+- name:
+  hosts: 192.168.0.142
+  vars:
+    pkg: httpd
+    srv: httpd
+  tasks:
+    - name:
+      yum:
+        name: "{{pkg}}"
+        state: latest
+    - name:
+      service:
+        name: "{{srv}}"
+        enabled: true
+        state: started
